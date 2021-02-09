@@ -4,16 +4,18 @@ body {
 
 #button-container {
   text-align: right;
+  margin-right: 80px;
   margin-top: 10px;
 }
 
 #save-button {
   padding: 8px;
   width: 60px;
-  background-color: #4e7699;
+  background-color: #6897fc;
   color: white;
   border: none;
   border-radius: 5%;
+  margin-bottom: 50px;
 }
 
 img {
@@ -22,25 +24,28 @@ img {
 
 main {
   margin-top: 30px;
-  margin-bottom: 60px;
 }
 
 #nav {
   height: 80px;
-  background-color: #4e7699;
-  color: #e6e8eb;
-}
-
-header {
-  text-align: center;
+  background-color: #6897fc;
+  color: white;
 }
 
 .inputBox {
-  width: 95%;
+  width: 80%;
   height: 30px;
 }
 
 input,
 textarea {
   background-color: #e6e8eb;
+}
+
+textarea {
+  width: 90%;
+}
+
+.nav-item {
+  margin-top: 25px;
 }

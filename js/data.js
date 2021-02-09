@@ -40,8 +40,6 @@ $entryForm.addEventListener('submit', function (event) {
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
 
-// Verify that new entries are saved to local storage along
-// with the rest of the data model on page reload.
 var myStorage = window.localStorage;
 var previousDataJSON = myStorage.getItem('create-an-entry');
 if (previousDataJSON != null) {
