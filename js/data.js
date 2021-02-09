@@ -11,7 +11,6 @@ var $imageURL = document.querySelector('input[name="imageUpload"]');
 var $textArea = document.querySelector('textarea[name="notes"]');
 var $title = document.querySelector('input[name="title"]');
 var $img = document.querySelector('img');
-var $entryForm = document.querySelector('div.container');
 console.log('$img', $img);
 console.log('$textArea', $textArea);
 console.log('$title', $title);
@@ -24,6 +23,7 @@ $imageURL.addEventListener('input', function (event) {
 
 });
 
+var $entryForm = document.querySelector('div.entry-form');
 $entryForm.addEventListener('submit', function (event) {
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
