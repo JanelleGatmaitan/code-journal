@@ -24,51 +24,53 @@
     </div>
   </header>
 
+
   <div data-view="entry form" class="entry-form">
-    <main class="container">
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
-        </div>
-      </div>
-
-      <form action="index.html" method="get">
-        <div class="row">
-          <div class="column-half col-full">
-            <img src="images/placeholder-image-square.jpg">
-          </div>
-          <div class="column-half col-full">
-            <label for="image">
-              <h4>Image URL</h4>
-            </label>
-            <input type="text" name="imageUpload" class="inputBox" required>
-            <label for="title">
-              <h4>Title</h4>
-            </label>
-            <input type="text" name="title" class="inputBox" required>
-          </div>
-        </div>
-
+    <div data-view="entry form">
+      <main class="container">
         <div class="row">
           <div class="column-full">
-            <label for="notes">
-              <h4>Notes</h4>
-            </label>
-            <textarea name="notes" cols="100" rows="15" required></textarea>
+            <h1>New Entry</h1>
           </div>
         </div>
 
-        <div class="row">
-          <div class="column-full" id="button-container">
-            <input type="submit" name="save" value="save" id="save-button">
+        <form action="index.html" method="get">
+          <div class="row">
+            <div class="column-half col-full">
+              <img src="images/placeholder-image-square.jpg">
+            </div>
+            <div class="column-half col-full">
+              <label for="image">
+                <h4>Image URL</h4>
+              </label>
+              <input type="text" name="imageUpload" class="inputBox" required>
+              <label for="title">
+                <h4>Title</h4>
+              </label>
+              <input type="text" name="title" class="inputBox" required>
+            </div>
           </div>
-        </div>
-      </form>
-    </main>
 
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
-  </div>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes">
+                <h4>Notes</h4>
+              </label>
+              <textarea name="notes" cols="100" rows="15" required></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column-full" id="button-container">
+              <input type="submit" name="save" value="save" id="save-button">
+            </div>
+          </div>
+        </form>
+      </main>
+
+      <script src="js/data.js"></script>
+      <script src="js/main.js"></script>
+    </div>
 </body>
 
 </html>
