@@ -2,17 +2,22 @@ body {
   font-family: sans-serif;
 }
 
-#button {
+#button-container {
   text-align: right;
   margin-top: 10px;
 }
 
-img {
-  width: 95%;
+#save-button {
+  padding: 8px;
+  width: 60px;
+  background-color: #4e7699;
+  color: white;
+  border: none;
+  border-radius: 5%;
 }
 
-h2 {
-  color: white;
+img {
+  width: 95%;
 }
 
 main {
@@ -22,10 +27,20 @@ main {
 
 #nav {
   height: 80px;
-  background-color: #add2e4;
+  background-color: #4e7699;
+  color: #e6e8eb;
+}
+
+header {
+  text-align: center;
 }
 
 .inputBox {
   width: 95%;
   height: 30px;
+}
+
+input,
+textarea {
+  background-color: #e6e8eb;
 }
