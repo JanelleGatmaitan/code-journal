@@ -15,14 +15,15 @@
 </head>
 
 <body>
-  <header>
-    <div class="row">
-      <div class="column-full">
-        <h2>Code Journal</h2>
-      </div>
-    </div>
-  </header>
   <div data-view="entry form" class="container">
+    <header>
+      <div class="row">
+        <div class="column-full" id="nav">
+          <h2>Code Journal</h2>
+        </div>
+      </div>
+    </header>
+
     <main>
       <div class="row">
         <div class="column-full">
@@ -39,11 +40,11 @@
             <label for="image">
               <h4>Image URL</h4>
             </label>
-            <input type="text" name="imageUpload" required>
+            <input type="text" name="imageUpload" class="inputBox" required>
             <label for="title">
               <h4>Title</h4>
             </label>
-            <input type="text" name="title" required>
+            <input type="text" name="title" class="inputBox" required>
           </div>
         </div>
 

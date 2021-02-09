@@ -41,4 +41,10 @@ function submitForm(event) {
   data.entries.unshift(inputVals);
   console.log(inputVals);
   console.log(data.entries);
+  $imageURL.value = '';
+  $title.value = '';
+  $textArea.value = '';
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
+
+$entryForm.addEventListener('submit', submitForm());
