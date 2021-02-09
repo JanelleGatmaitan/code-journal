@@ -7,8 +7,6 @@ var data = {
   nextEntryId: 1
 };
 
-// Listen for 'input' events on the photoUrl input to update the src attribute
-// of the photo preview when the input value changes.
 var $imageURL = document.querySelector('input[name="imageUpload"]');
 var $textArea = document.querySelector('textarea[name="notes"]');
 var $title = document.querySelector('input[name="title"]');
@@ -26,12 +24,7 @@ $imageURL.addEventListener('input', function (event) {
 
 });
 
-// Listen for 'submit' events on the journal entry form
-// $entryForm.addEventListener('submit', function (event) {
-//   var inputVals = {};
-// });
-
-function submitForm(event) {
+$entryForm.addEventListener('submit', function (event) {
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
   inputVals.title = $title.value;
@@ -39,20 +32,23 @@ function submitForm(event) {
   inputVals.entryNumber = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(inputVals);
-  console.log(inputVals);
-  console.log(data.entries);
+  console.log('inputVals: ', inputVals);
+  console.log('data.entries: ', data.entries);
   $imageURL.value = '';
   $title.value = '';
   $textArea.value = '';
-  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
-}
-$entryForm.addEventListener('submit', submitForm());
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+});
 
 // Verify that new entries are saved to local storage along
 // with the rest of the data model on page reload.
 var myStorage = window.localStorage;
+var previousDataJSON = myStorage.getItem('create-an-entry');
+if (previousDataJSON != null) {
+  data = JSON.parse(previousDataJSON);
+}
 
 window.addEventListener('beforeunload', function (event) {
   var dataJSON = JSON.stringify(data);
-  myStorage.setItem('issue-1-create-an-entry', dataJSON);
+  myStorage.setItem('create-an-entry', dataJSON);
 });

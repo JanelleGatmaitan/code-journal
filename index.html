@@ -15,15 +15,15 @@
 </head>
 
 <body>
-  <div data-view="entry form" class="container">
-    <header>
-      <div class="row">
-        <div class="column-full" id="nav">
-          <h2>Code Journal</h2>
-        </div>
+  <header>
+    <div class="row">
+      <div class="column-full" id="nav">
+        <h2>Code Journal</h2>
       </div>
-    </header>
+    </div>
+  </header>
 
+  <div data-view="entry form" class="container">
     <main>
       <div class="row">
         <div class="column-full">
@@ -53,12 +53,12 @@
             <label for="notes">
               <h4>Notes</h4>
             </label>
-            <textarea name="notes" cols="115" rows="15" required>Write your comments...</textarea>
+            <textarea name="notes" cols="115" rows="15" required></textarea>
           </div>
         </div>
 
         <div class="row">
-          <div class="column-full" id="button">
+          <div class="column-full" id="button-container">
             <input type="submit" name="save" value="save" id="save-button">
           </div>
         </div>
