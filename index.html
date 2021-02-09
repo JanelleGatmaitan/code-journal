@@ -24,53 +24,92 @@
     </div>
   </header>
 
-  <div data-view="entries" class="entrieslist"></div>
+  <div data-view="entries" class="entries-list-container">
+    <ul class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>Entries</h1>
+        </div>
+      </div>
 
-    <div data-view="entry form" class="entry-form">
-      <main class="container">
+      <li class="entry-item">
         <div class="row">
-          <div class="column-full">
-            <h1>New Entry</h1>
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half">
+            <h2 class="entry-title">Example Entry</h2>
+            <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ridiculus mus mauris vitae ultricies leo integer. Turpis in eu mi bibendum neque egestas. Eros donec ac odio
+            tempor. Risus ultricies tristique nulla aliquet enim tortor at.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry-item">
+        <div class="row">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half">
+            <h2 class="entry-title">Example Entry</h2>
+            <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna
+              aliqua. Ridiculus mus mauris vitae ultricies leo integer. Turpis in eu mi bibendum neque egestas. Eros donec ac
+              odio
+              tempor. Risus ultricies tristique nulla aliquet enim tortor at.</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div data-view="entry form" class="entry-form">
+    <main class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>New Entry</h1>
+        </div>
+      </div>
+
+      <form action="index.html" method="get">
+        <div class="row">
+          <div class="column-half col-full">
+            <img src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half col-full">
+            <label for="image">
+              <h4>Image URL</h4>
+            </label>
+            <input type="text" name="imageUpload" class="inputBox" required>
+            <label for="title">
+              <h4>Title</h4>
+            </label>
+            <input type="text" name="title" class="inputBox" required>
           </div>
         </div>
 
-        <form action="index.html" method="get">
-          <div class="row">
-            <div class="column-half col-full">
-              <img src="images/placeholder-image-square.jpg">
-            </div>
-            <div class="column-half col-full">
-              <label for="image">
-                <h4>Image URL</h4>
-              </label>
-              <input type="text" name="imageUpload" class="inputBox" required>
-              <label for="title">
-                <h4>Title</h4>
-              </label>
-              <input type="text" name="title" class="inputBox" required>
-            </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">
+              <h4>Notes</h4>
+            </label>
+            <textarea name="notes" cols="100" rows="15" required></textarea>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="column-full">
-              <label for="notes">
-                <h4>Notes</h4>
-              </label>
-              <textarea name="notes" cols="100" rows="15" required></textarea>
-            </div>
+        <div class="row">
+          <div class="column-full" id="button-container">
+            <input type="submit" name="save" value="save" id="save-button">
           </div>
+        </div>
+      </form>
+    </main>
+  </div>
 
-          <div class="row">
-            <div class="column-full" id="button-container">
-              <input type="submit" name="save" value="save" id="save-button">
-            </div>
-          </div>
-        </form>
-      </main>
-    </div>
-
-      <script src="js/data.js"></script>
-      <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
