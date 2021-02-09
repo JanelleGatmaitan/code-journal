@@ -46,5 +46,13 @@ function submitForm(event) {
   $textArea.value = '';
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
-
 $entryForm.addEventListener('submit', submitForm());
+
+// Verify that new entries are saved to local storage along
+// with the rest of the data model on page reload.
+var myStorage = window.localStorage;
+
+window.addEventListener('beforeunload', function (event) {
+  var dataJSON = JSON.stringify(data);
+  myStorage.setItem('issue-1-create-an-entry', dataJSON);
+});
