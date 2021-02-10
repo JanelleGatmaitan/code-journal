@@ -21,13 +21,3 @@ $entryForm.addEventListener('submit', function (event) {
   data.entries.unshift(inputVals);
   $entryForm.reset();
 });
-
-var previousDataJSON = localStorage.getItem('create-an-entry');
-if (previousDataJSON != null) {
-  data = JSON.parse(previousDataJSON);
-}
-
-window.addEventListener('beforeunload', function (event) {
-  var dataJSON = JSON.stringify(data);
-  localStorage.setItem('create-an-entry', dataJSON);
-});
