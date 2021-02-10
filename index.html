@@ -25,8 +25,8 @@
   </header>
 
 
-  <div data-view="entry form" class="entry-form">
-    <div data-view="entry form">
+  <!-- <div data-view="entry form" class="entry-form"> -->
+    <div data-view="entry-form" class="entry-form">
       <main class="container">
         <div class="row">
           <div class="column-full">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <form action="index.html" method="get">
+        <form>
           <div class="row">
             <div class="column-half col-full">
               <img src="images/placeholder-image-square.jpg">
@@ -43,11 +43,11 @@
               <label for="image">
                 <h4>Image URL</h4>
               </label>
-              <input type="text" name="imageUpload" class="inputBox" required>
+              <input type="text" name="imageUpload" class="inputBox" id="image" required>
               <label for="title">
                 <h4>Title</h4>
               </label>
-              <input type="text" name="title" class="inputBox" required>
+              <input type="text" name="title" class="inputBox" id="title" required>
             </div>
           </div>
 
@@ -56,7 +56,7 @@
               <label for="notes">
                 <h4>Notes</h4>
               </label>
-              <textarea name="notes" cols="100" rows="15" required></textarea>
+              <textarea name="notes" cols="100" rows="15" id="notes" required></textarea>
             </div>
           </div>
 

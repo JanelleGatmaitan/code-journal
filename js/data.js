@@ -23,22 +23,18 @@ $entryForm.addEventListener('submit', function (event) {
   inputVals.imageURL = $imageURL.value;
   inputVals.title = $title.value;
   inputVals.textarea = $textArea.value;
-  inputVals.entryNumber = data.nextEntryId;
+  inputVals.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(inputVals);
-  $imageURL.value = '';
-  $title.value = '';
-  $textArea.value = '';
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $entryForm.reset();
 });
 
-var myStorage = window.localStorage;
-var previousDataJSON = myStorage.getItem('create-an-entry');
+var previousDataJSON = localStorage.getItem('create-an-entry');
 if (previousDataJSON != null) {
   data = JSON.parse(previousDataJSON);
 }
 
 window.addEventListener('beforeunload', function (event) {
   var dataJSON = JSON.stringify(data);
-  myStorage.setItem('create-an-entry', dataJSON);
+  localStorage.setItem('create-an-entry', dataJSON);
 });
