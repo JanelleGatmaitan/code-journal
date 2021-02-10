@@ -49,3 +49,11 @@ textarea {
 .nav-item {
   margin-top: 25px;
 }
+
+ul {
+  list-style-type: none;
+}
+
+li div {
+  margin-bottom: 50px;
+}
