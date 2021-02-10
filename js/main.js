@@ -4,6 +4,8 @@ var $imageURL = document.querySelector('input[name="imageUpload"]');
 var $textArea = document.querySelector('textarea[name="notes"]');
 var $title = document.querySelector('input[name="title"]');
 var $img = document.querySelector('img');
+var $entriesDisplay = document.querySelector('.entries-list-container');
+console.log($entriesDisplay);
 
 $imageURL.addEventListener('input', function (event) {
   $img.setAttribute('src', $imageURL.value);
@@ -19,6 +21,8 @@ $entryForm.addEventListener('submit', function (event) {
   data.nextEntryId++;
   data.entries.unshift(inputVals);
   $entryForm.reset();
+  $entriesDisplay.className = 'hidden';
+
 });
 
 function renderEntry(entry) {

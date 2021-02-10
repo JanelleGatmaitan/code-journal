@@ -34,11 +34,10 @@
 }
 
 .new-anchor-container {
-  margin-top: 30px;
-  width: 50%;
-  justify-content: right;
+  margin-top: 50px;
 }
 
-.column-x {
-  width: 55%;
+img {
+  width: 95%;
+  height: 501px;
 }
