@@ -24,21 +24,31 @@ $entryForm.addEventListener('submit', function (event) {
 
 function renderEntry(entry) {
   var divRow = document.createElement('div');
-  var rowAttribute = divRow.setAttribute('class', 'row');
+  divRow.setAttribute('class', 'row');
   var divColHalf = document.createElement('div');
-  var ColHalfAttribute = divColHalf.setAttribute('class', 'column-half');
+  divColHalf.setAttribute('class', 'column-half');
   divRow.appendChild(divColHalf);
   var entryImg = document.createElement('img');
-  var entryImgAttribute = entryImg.setAttribute('src', entry.imageURL);
+  entryImg.setAttribute('src', entry.imageURL);
   divColHalf.appendChild(entryImg);
   var secondDivColHalf = document.createElement('div');
-  var secondColHalfAttribute = secondDivColHalf.setAttribute('class', 'column-half');
+  secondDivColHalf.setAttribute('class', 'column-half');
   var entryH2 = document.createElement('h2');
   var h2Text = document.createTextNode(entry.title);
+  entryH2.appendChild(h2Text);
   var note = document.createElement('p');
   var noteText = document.createTextNode(entry.textarea);
+  note.appendChild(noteText);
   secondDivColHalf.appendChild(entryH2);
-  secondDivColHalf.appendChild(noteText);
+  secondDivColHalf.appendChild(note);
   divRow.appendChild(secondDivColHalf);
   return divRow;
 }
+
+var $li = document.querySelector('.entry-item');
+window.addEventListener('DOMContentLoaded', function (event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    var viewEntry = renderEntry(data.entries[i]);
+    $li.appendChild(viewEntry);
+  }
+});
