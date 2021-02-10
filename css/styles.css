@@ -20,6 +20,7 @@ body {
 
 img {
   width: 95%;
+  object-fit: cover;
 }
 
 main {
@@ -29,7 +30,8 @@ main {
 #nav {
   height: 80px;
   background-color: #6897fc;
-  color: white;
+
+  /* color: white; */
 }
 
 .inputBox {
