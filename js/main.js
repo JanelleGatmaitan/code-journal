@@ -5,7 +5,12 @@ var $textArea = document.querySelector('textarea[name="notes"]');
 var $title = document.querySelector('input[name="title"]');
 var $img = document.querySelector('img');
 var $entriesDisplay = document.querySelector('.entries-list-container');
-console.log($entriesDisplay);
+var $entriesNav = document.querySelector('h4.nav-item');
+var $new = document.querySelector('.new-anchor');
+
+$entriesNav.addEventListener('click', function (event) {
+  $entriesDisplay.className = 'entries-list-container';
+});
 
 $imageURL.addEventListener('input', function (event) {
   $img.setAttribute('src', $imageURL.value);
@@ -50,6 +55,7 @@ function renderEntry(entry) {
 
 var $li = document.querySelector('.entry-item');
 window.addEventListener('DOMContentLoaded', function (event) {
+  $entriesDisplay.className = 'hidden';
   for (var i = 0; i < data.entries.length; i++) {
     var viewEntry = renderEntry(data.entries[i]);
     $li.appendChild(viewEntry);
