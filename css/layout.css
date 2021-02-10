@@ -32,3 +32,13 @@
     width: 50%;
   }
 }
+
+.new-anchor-container {
+  margin-top: 30px;
+  width: 50%;
+  justify-content: right;
+}
+
+.column-x {
+  width: 55%;
+}

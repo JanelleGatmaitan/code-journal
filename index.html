@@ -18,70 +18,76 @@
 
   <header id="nav">
     <div class="container">
+      <div class="row">
         <h2 class="nav-item">Code Journal</h2>
-        <h4 class="nav-item"><a href="">Entries</a></h4>
+        <h4 class="nav-item">Entries</h4>
+      </div>
     </div>
   </header>
 
+  <div class="container">
+    <div class="row">
+      <div class="column-half">
+        <h1>Entries</h1>
+      </div>
+      <div class="new-anchor-container">
+        <a class="new-anchor">New</a>
+      </div>
+    </div>
+  </div>
+
+
   <div data-view="entries" class="entries-list-container">
     <ul class="container">
-      <div class="row">
-        <div class="column-half">
-          <h1>Entries</h1>
-        </div>
-        <div class="column-half">
-          <a>New</a>
-        </div>
-      </div>
       <li class="entry-item"></li>
     </ul>
   </div>
 
-    <div data-view="entry-form" class="entry-form">
-      <main class="container">
+  <div data-view="entry-form" class="entry-form">
+    <main class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>New Entry</h1>
+        </div>
+      </div>
+
+      <form>
         <div class="row">
-          <div class="column-full">
-            <h1>New Entry</h1>
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half col-full">
+            <label for="image">
+              <h4>Image URL</h4>
+            </label>
+            <input type="text" name="imageUpload" class="inputBox" id="image" required>
+            <label for="title">
+              <h4>Title</h4>
+            </label>
+            <input type="text" name="title" class="inputBox" id="title" required>
           </div>
         </div>
 
-        <form>
-          <div class="row">
-            <div class="column-half">
-              <img src="images/placeholder-image-square.jpg">
-            </div>
-            <div class="column-half col-full">
-              <label for="image">
-                <h4>Image URL</h4>
-              </label>
-              <input type="text" name="imageUpload" class="inputBox" id="image" required>
-              <label for="title">
-                <h4>Title</h4>
-              </label>
-              <input type="text" name="title" class="inputBox" id="title" required>
-            </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">
+              <h4>Notes</h4>
+            </label>
+            <textarea name="notes" cols="100" rows="15" id="notes" required></textarea>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="column-full">
-              <label for="notes">
-                <h4>Notes</h4>
-              </label>
-              <textarea name="notes" cols="100" rows="15" id="notes" required></textarea>
-            </div>
+        <div class="row">
+          <div class="column-full" id="button-container">
+            <input type="submit" name="save" value="save" id="save-button">
           </div>
+        </div>
+      </form>
+    </main>
 
-          <div class="row">
-            <div class="column-full" id="button-container">
-              <input type="submit" name="save" value="save" id="save-button">
-            </div>
-          </div>
-        </form>
-      </main>
-
-      <script src="js/data.js"></script>
-      <script src="js/main.js"></script>
-    </div>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </div>
 </body>
 
 </html>

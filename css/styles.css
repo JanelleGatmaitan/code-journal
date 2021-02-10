@@ -19,8 +19,8 @@ body {
 }
 
 img {
-  width: 100%;
-  height: 450px;
+  width: 95%;
+  height: 500px;
 }
 
 main {
@@ -31,7 +31,6 @@ main {
   height: 70px;
   background-color: #6897fc;
   color: white;
-  display: flex;
 }
 
 .inputBox {
@@ -56,7 +55,19 @@ li div {
   margin-bottom: 50px;
 }
 
+h2.nav-item {
+  margin-left: 8px;
+}
+
 h4.nav-item {
   margin-left: 40px;
   margin-top: 25px;
+}
+
+.new-anchor {
+  padding: 10px 20px;
+  background-color: #6897fc;
+  color: white;
+  text-transform: uppercase;
+  height: 40px;
 }
