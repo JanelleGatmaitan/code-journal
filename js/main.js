@@ -7,7 +7,6 @@ var $img = document.querySelector('img');
 
 $imageURL.addEventListener('input', function (event) {
   $img.setAttribute('src', $imageURL.value);
-
 });
 
 var $entryForm = document.querySelector('div.entry-form');
