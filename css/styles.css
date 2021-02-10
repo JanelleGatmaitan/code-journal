@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+}
+
+#button-container {
+  text-align: right;
+  margin-right: 80px;
+  margin-top: 10px;
+}
+
+#save-button {
+  padding: 8px;
+  width: 60px;
+  background-color: #6897fc;
+  color: white;
+  border: none;
+  border-radius: 5%;
+  margin-bottom: 50px;
+}
+
+img {
+  width: 95%;
+}
+
+main {
+  margin-top: 30px;
+}
+
+#nav {
+  height: 80px;
+  background-color: #6897fc;
+  color: white;
+}
+
+.inputBox {
+  width: 80%;
+  height: 30px;
+}
+
+input,
+textarea {
+  background-color: #e6e8eb;
+}
+
+textarea {
+  width: 90%;
+}
+
+.nav-item {
+  margin-top: 25px;
+}
