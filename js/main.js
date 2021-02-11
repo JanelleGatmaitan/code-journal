@@ -46,6 +46,11 @@ $imageURL.addEventListener('input', function (event) {
 });
 
 $entryForm.addEventListener('submit', function (event) {
+  $entriesDisplay.className = 'entries-list-container';
+  $entryForm.className = 'hidden';
+  classNames.whoIsHidden = 'entryForm';
+  var classNamesJSON = JSON.stringify(classNames);
+  localStorage.setItem('classNames', classNamesJSON);
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
   inputVals.title = $title.value;
