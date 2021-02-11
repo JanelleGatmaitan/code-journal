@@ -62,6 +62,9 @@ function renderEntry(entry) {
   var entryH2 = document.createElement('h2');
   var h2Text = document.createTextNode(entry.title);
   entryH2.appendChild(h2Text);
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fas fa-pen');
+  entryH2.appendChild(editIcon);
   var note = document.createElement('p');
   var noteText = document.createTextNode(entry.textarea);
   note.appendChild(noteText);
