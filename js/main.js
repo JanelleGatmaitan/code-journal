@@ -82,3 +82,5 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $li.appendChild(viewEntry);
   }
 });
+
+$li.addEventListener('click');
