@@ -9,14 +9,10 @@ var $entriesNav = document.querySelector('h4.nav-item');
 var $new = document.querySelector('.new-anchor');
 var $entryForm = document.querySelector('div.entry-form');
 
-if (classNames.whoIsHidden === 'entryForm') {
-  // set the classes properly
+if (data.view === 'hidden') {
   $entriesDisplay.className = 'entries-list-container';
   $entryForm.className = 'hidden';
-}
-
-if (classNames.whoIsHidden === 'entriesDisplay') {
-  // set the classes properly
+} else {
   $entriesDisplay.className = 'hidden';
   $entryForm.className = 'entry-form';
 }
@@ -24,21 +20,13 @@ if (classNames.whoIsHidden === 'entriesDisplay') {
 $entriesNav.addEventListener('click', function (event) {
   $entriesDisplay.className = 'entries-list-container';
   $entryForm.className = 'hidden';
-
-  // update Local Storage
-  classNames.whoIsHidden = 'entryForm';
-  var classNamesJSON = JSON.stringify(classNames);
-  localStorage.setItem('classNames', classNamesJSON);
+  data.view = 'hidden';
 });
 
 $new.addEventListener('click', function (event) {
   $entriesDisplay.className = 'hidden';
   $entryForm.className = 'entry-form';
-
-  // update Local Storage
-  classNames.whoIsHidden = 'entriesDisplay';
-  var classNamesJSON = JSON.stringify(classNames);
-  localStorage.setItem('classNames', classNamesJSON);
+  data.view = 'entry-form';
 });
 
 $imageURL.addEventListener('input', function (event) {
@@ -48,9 +36,7 @@ $imageURL.addEventListener('input', function (event) {
 $entryForm.addEventListener('submit', function (event) {
   $entriesDisplay.className = 'entries-list-container';
   $entryForm.className = 'hidden';
-  classNames.whoIsHidden = 'entryForm';
-  var classNamesJSON = JSON.stringify(classNames);
-  localStorage.setItem('classNames', classNamesJSON);
+  data.view = 'hidden';
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
   inputVals.title = $title.value;
