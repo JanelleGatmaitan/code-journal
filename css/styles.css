@@ -18,16 +18,12 @@ body {
   margin-bottom: 50px;
 }
 
-img {
-  width: 95%;
-}
-
 main {
   margin-top: 30px;
 }
 
 #nav {
-  height: 80px;
+  height: 70px;
   background-color: #6897fc;
   color: white;
 }
@@ -46,6 +42,23 @@ textarea {
   width: 90%;
 }
 
-.nav-item {
+ul {
+  list-style-type: none;
+}
+
+li div {
+  margin-bottom: 50px;
+}
+
+h4.nav-item {
+  margin-left: 40px;
   margin-top: 25px;
+}
+
+div.new {
+  padding: 10px 20px;
+  background-color: #6897fc;
+  color: white;
+  text-transform: uppercase;
+  width: 80px;
 }
