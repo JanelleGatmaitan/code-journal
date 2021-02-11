@@ -22,7 +22,6 @@ if (previousclassNamesJSON != null) {
 window.addEventListener('beforeunload', function (event) {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('create-an-entry', dataJSON);
-  // These two lines, update the classNames in local storage
   var classNamesJSON = JSON.stringify(classNames);
   localStorage.setItem('classNames', classNamesJSON);
 });

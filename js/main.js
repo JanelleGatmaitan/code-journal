@@ -9,7 +9,6 @@ var $entriesNav = document.querySelector('h4.nav-item');
 var $new = document.querySelector('.new-anchor');
 var $entryForm = document.querySelector('div.entry-form');
 
-// This happens on refresh - when this page is loaded\
 if (classNames.whoIsHidden === 'entryForm') {
   // set the classes properly
   $entriesDisplay.className = 'entries-list-container';

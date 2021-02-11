@@ -33,11 +33,22 @@
   }
 }
 
-.new-anchor-container {
-  margin-top: 50px;
-}
-
 img {
   width: 95%;
-  height: 501px;
+  height: 500px;
+}
+
+a.column-half {
+  text-decoration: none;
+  justify-content: right;
+  text-align: right;
+}
+
+div.new {
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 40px;
+  margin-top: 20px;
+  float: right;
+  overflow: auto;
 }
