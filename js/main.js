@@ -81,6 +81,18 @@ window.addEventListener('DOMContentLoaded', function (event) {
     var viewEntry = renderEntry(data.entries[i]);
     $li.appendChild(viewEntry);
   }
+  var $editIcon = document.querySelector('i');
+  console.log('expected: <i class="fas fa-pen">, got: ' + $editIcon);
+  $editIcon.addEventListener('click', function (event) {
+    $entriesDisplay.className = 'hidden';
+    $entryForm.className = 'entry-form';
+    data.view = 'entry-form';
+  });
 });
 
-$li.addEventListener('click');
+// $li.addEventListener('click');
+
+// window.addEventListener('DOMContentLoaded', function (event) {
+//   var $editIcon = document.querySelector('i');
+//   console.log('expect: <i class="fas fa-pen">' + ' got: ' + $editIcon);
+// });
