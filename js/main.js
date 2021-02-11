@@ -82,17 +82,25 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $li.appendChild(viewEntry);
   }
   var $editIcon = document.querySelector('i');
-  console.log('expected: <i class="fas fa-pen">, got: ' + $editIcon);
-  $editIcon.addEventListener('click', function (event) {
-    $entriesDisplay.className = 'hidden';
-    $entryForm.className = 'entry-form';
-    data.view = 'entry-form';
+  console.log('expect: <i class="fas fa-pen">' + ' got: ' + $editIcon);
+  $li.addEventListener('click', function (event) {
+    if (event.target == $editIcon) {
+      $entriesDisplay.className = 'hidden';
+      $entryForm.className = 'entry-form';
+      data.view = 'entry-form';
+    }
   });
-});
 
-// $li.addEventListener('click');
+});
 
 // window.addEventListener('DOMContentLoaded', function (event) {
 //   var $editIcon = document.querySelector('i');
 //   console.log('expect: <i class="fas fa-pen">' + ' got: ' + $editIcon);
+// });
+
+// console.log('expected: <i class="fas fa-pen">, got: ' + $editIcon);
+// $editIcon.addEventListener('click', function (event) {
+//   $entriesDisplay.className = 'hidden';
+//   $entryForm.className = 'entry-form';
+//   data.view = 'entry-form';
 // });
