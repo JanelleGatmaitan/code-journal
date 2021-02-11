@@ -7,16 +7,45 @@ var $img = document.querySelector('img');
 var $entriesDisplay = document.querySelector('.entries-list-container');
 var $entriesNav = document.querySelector('h4.nav-item');
 var $new = document.querySelector('.new-anchor');
+var $entryForm = document.querySelector('div.entry-form');
+
+// This happens on refresh - when this page is loaded\
+if (classNames.whoIsHidden === 'entryForm') {
+  // set the classes properly
+  $entriesDisplay.className = 'entries-list-container';
+  $entryForm.className = 'hidden';
+}
+
+if (classNames.whoIsHidden === 'entriesDisplay') {
+  // set the classes properly
+  $entriesDisplay.className = 'hidden';
+  $entryForm.className = 'entry-form';
+}
 
 $entriesNav.addEventListener('click', function (event) {
   $entriesDisplay.className = 'entries-list-container';
+  $entryForm.className = 'hidden';
+
+  // update Local Storage
+  classNames.whoIsHidden = 'entryForm';
+  var classNamesJSON = JSON.stringify(classNames);
+  localStorage.setItem('classNames', classNamesJSON);
+});
+
+$new.addEventListener('click', function (event) {
+  $entriesDisplay.className = 'hidden';
+  $entryForm.className = 'entry-form';
+
+  // update Local Storage
+  classNames.whoIsHidden = 'entriesDisplay';
+  var classNamesJSON = JSON.stringify(classNames);
+  localStorage.setItem('classNames', classNamesJSON);
 });
 
 $imageURL.addEventListener('input', function (event) {
   $img.setAttribute('src', $imageURL.value);
 });
 
-var $entryForm = document.querySelector('div.entry-form');
 $entryForm.addEventListener('submit', function (event) {
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
@@ -26,11 +55,10 @@ $entryForm.addEventListener('submit', function (event) {
   data.nextEntryId++;
   data.entries.unshift(inputVals);
   $entryForm.reset();
-  $entriesDisplay.className = 'hidden';
-
 });
 
 function renderEntry(entry) {
+  event.preventDefault();
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
   var divColHalf = document.createElement('div');
@@ -54,8 +82,8 @@ function renderEntry(entry) {
 }
 
 var $li = document.querySelector('.entry-item');
+
 window.addEventListener('DOMContentLoaded', function (event) {
-  $entriesDisplay.className = 'hidden';
   for (var i = 0; i < data.entries.length; i++) {
     var viewEntry = renderEntry(data.entries[i]);
     $li.appendChild(viewEntry);
