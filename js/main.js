@@ -75,16 +75,16 @@ function renderEntry(entry) {
 }
 
 var $li = document.querySelector('.entry-item');
+var $ul = document.querySelector('ul');
 
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var viewEntry = renderEntry(data.entries[i]);
     $li.appendChild(viewEntry);
   }
-  var $editIcon = document.querySelector('i');
-  console.log('expect: <i class="fas fa-pen">' + ' got: ' + $editIcon);
+
   $li.addEventListener('click', function (event) {
-    if (event.target == $editIcon) {
+    if (event.target && event.target.matches('i')) {
       $entriesDisplay.className = 'hidden';
       $entryForm.className = 'entry-form';
       data.view = 'entry-form';
