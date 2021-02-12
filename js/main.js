@@ -51,6 +51,7 @@ function renderEntry(entry) {
   event.preventDefault();
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
+  divRow.setAttribute('data-entry-id', entry.entryId);
   var divColHalf = document.createElement('div');
   divColHalf.setAttribute('class', 'column-half');
   divRow.appendChild(divColHalf);
@@ -75,7 +76,6 @@ function renderEntry(entry) {
 }
 
 var $li = document.querySelector('.entry-item');
-var $ul = document.querySelector('ul');
 
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
@@ -88,6 +88,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
       $entriesDisplay.className = 'hidden';
       $entryForm.className = 'entry-form';
       data.view = 'entry-form';
+      data.editing = true;
     }
   });
 
