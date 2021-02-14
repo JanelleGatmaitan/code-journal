@@ -8,6 +8,7 @@ var $entriesDisplay = document.querySelector('.entries-list-container');
 var $entriesNav = document.querySelector('h4.nav-item');
 var $new = document.querySelector('.new-anchor');
 var $entryForm = document.querySelector('div.entry-form');
+var $form = document.querySelector('form');
 
 if (data.view === 'hidden') {
   $entriesDisplay.className = 'entries-list-container';
@@ -34,9 +35,6 @@ $imageURL.addEventListener('input', function (event) {
 });
 
 $entryForm.addEventListener('submit', function (event) {
-  $entriesDisplay.className = 'entries-list-container';
-  $entryForm.className = 'hidden';
-  data.view = 'hidden';
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
   inputVals.title = $title.value;
@@ -44,14 +42,16 @@ $entryForm.addEventListener('submit', function (event) {
   inputVals.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(inputVals);
-  $entryForm.reset();
+  renderEntry(data.entries[0]);
+  $entriesDisplay.className = 'entries-list-container';
+  $entryForm.className = 'hidden';
+  data.view = 'hidden';
+  $form.reset();
 });
 
 function renderEntry(entry) {
-  event.preventDefault();
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
-  divRow.setAttribute('data-entry-id', entry.entryId);
   var divColHalf = document.createElement('div');
   divColHalf.setAttribute('class', 'column-half');
   divRow.appendChild(divColHalf);
@@ -65,6 +65,7 @@ function renderEntry(entry) {
   entryH2.appendChild(h2Text);
   var editIcon = document.createElement('i');
   editIcon.setAttribute('class', 'fas fa-pen');
+  editIcon.setAttribute('data-entry-id', entry.entryId);
   entryH2.appendChild(editIcon);
   var note = document.createElement('p');
   var noteText = document.createTextNode(entry.textarea);
@@ -88,20 +89,36 @@ window.addEventListener('DOMContentLoaded', function (event) {
       $entriesDisplay.className = 'hidden';
       $entryForm.className = 'entry-form';
       data.view = 'entry-form';
-      data.editing = true;
+      var index = event.target.getAttribute('data-entry-id');
+      for (j = 0; j < data.entries.length; j++) {
+        if (data.entries[j].entryId == index) {
+          data.editing = data.entries[j];
+          $imageURL.value = data.entries[j].imageURL;
+          $img.setAttribute('src', $imageURL.value);
+          $title.value = data.entries[j].title;
+          $textArea.value = data.entries[j].textarea;
+          console.log('yeet');
+        }
+      }
+
+      // console.log('typeof index: ', typeof index);
+      // console.log('parseFloat index: ', parseFloat(index));
+      // data.editing = data.entries[index];
+      // console.log('index: ', index);
+      // console.log('data.editing: ', data.editing);
+      // console.log('data.entries[index - 1]', data.entries[index - 1]);
     }
   });
 
+  //   function listRenderedEntries() {
+  //     // for (var x = 0; x < data.entries.length; x++) {
+  //     var $renderedEntries = document.querySelectorAll('i[data-entry-id]');
+  //     console.log('$renderedEntries', $renderedEntries);
+  //     console.log('$entry[0]: ', $renderedEntries[0]);
+  //     console.log('$entry[0].getAttribute("data-entry-id"): ', $renderedEntries[0].getAttribute('data-entry-id'));
+  //     // }
+  //   }
+
+  //   listRenderedEntries();
+
 });
-
-// window.addEventListener('DOMContentLoaded', function (event) {
-//   var $editIcon = document.querySelector('i');
-//   console.log('expect: <i class="fas fa-pen">' + ' got: ' + $editIcon);
-// });
-
-// console.log('expected: <i class="fas fa-pen">, got: ' + $editIcon);
-// $editIcon.addEventListener('click', function (event) {
-//   $entriesDisplay.className = 'hidden';
-//   $entryForm.className = 'entry-form';
-//   data.view = 'entry-form';
-// });
