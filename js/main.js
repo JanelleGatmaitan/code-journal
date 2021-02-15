@@ -8,6 +8,8 @@ var $entriesDisplay = document.querySelector('.entries-list-container');
 var $entriesNav = document.querySelector('h4.nav-item');
 var $new = document.querySelector('.new-anchor');
 var $entryForm = document.querySelector('div.entry-form');
+var $form = document.querySelector('form');
+var $li = document.querySelector('.entry-item');
 
 if (data.view === 'hidden') {
   $entriesDisplay.className = 'entries-list-container';
@@ -18,12 +20,15 @@ if (data.view === 'hidden') {
 }
 
 $entriesNav.addEventListener('click', function (event) {
+  data.editing = null;
   $entriesDisplay.className = 'entries-list-container';
   $entryForm.className = 'hidden';
   data.view = 'hidden';
 });
 
 $new.addEventListener('click', function (event) {
+  $form.reset();
+  data.editing = null;
   $entriesDisplay.className = 'hidden';
   $entryForm.className = 'entry-form';
   data.view = 'entry-form';
@@ -42,15 +47,32 @@ $entryForm.addEventListener('submit', function (event) {
   inputVals.title = $title.value;
   inputVals.textarea = $textArea.value;
   inputVals.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(inputVals);
-  $entryForm.reset();
+  if (data.editing != null) {
+    console.log('an entry is being edited');
+    for (var x = 0; x < data.entries.length; x++) {
+      if (data.editing.entryId === data.entries[x].entryId) {
+        console.log('replace/edit already existing dom tree');
+        data.entries[x] = inputVals;
+        var editedEntry = data.entries[x];
+        var $previousEntryGallery = document.querySelectorAll('div[data-entry-id]');
+        var $previousEntry = $previousEntryGallery[x];
+        $previousEntry.replaceWith(renderEntry(editedEntry));
+      }
+    }
+  } else {
+    console.log('a new entry is being made');
+    data.entries.unshift(inputVals);
+    inputVals.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    $li.prepend(renderEntry(data.entries[0]));
+  }
+  $form.reset();
 });
 
 function renderEntry(entry) {
-  event.preventDefault();
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
+  divRow.setAttribute('data-entry-id', entry.entryId);
   var divColHalf = document.createElement('div');
   divColHalf.setAttribute('class', 'column-half');
   divRow.appendChild(divColHalf);
@@ -62,6 +84,10 @@ function renderEntry(entry) {
   var entryH2 = document.createElement('h2');
   var h2Text = document.createTextNode(entry.title);
   entryH2.appendChild(h2Text);
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fas fa-pen');
+  editIcon.setAttribute('data-entry-id', entry.entryId);
+  entryH2.appendChild(editIcon);
   var note = document.createElement('p');
   var noteText = document.createTextNode(entry.textarea);
   note.appendChild(noteText);
@@ -71,11 +97,30 @@ function renderEntry(entry) {
   return divRow;
 }
 
-var $li = document.querySelector('.entry-item');
-
-window.addEventListener('DOMContentLoaded', function (event) {
+function createEntryGallery() {
   for (var i = 0; i < data.entries.length; i++) {
     var viewEntry = renderEntry(data.entries[i]);
     $li.appendChild(viewEntry);
   }
+}
+
+window.addEventListener('DOMContentLoaded', function (event) {
+  createEntryGallery();
+  $li.addEventListener('click', function (event) {
+    if (event.target && event.target.matches('i')) {
+      $entriesDisplay.className = 'hidden';
+      $entryForm.className = 'entry-form';
+      data.view = 'entry-form';
+      var editingIndex = event.target.getAttribute('data-entry-id');
+      for (var j = 0; j < data.entries.length; j++) {
+        if (data.entries[j].entryId == editingIndex) {
+          $imageURL.value = data.entries[j].imageURL;
+          $img.setAttribute('src', $imageURL.value);
+          $title.value = data.entries[j].title;
+          $textArea.value = data.entries[j].textarea;
+          data.editing = data.entries[j];
+        }
+      }
+    }
+  });
 });
