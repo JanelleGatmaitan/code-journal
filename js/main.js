@@ -56,10 +56,7 @@ $entryForm.addEventListener('submit', function (event) {
         var editedEntry = data.entries[x];
         var $previousEntryGallery = document.querySelectorAll('div[data-entry-id]');
         var $previousEntry = $previousEntryGallery[x];
-        console.log($previousEntryGallery);
-        console.log($previousEntry);
         $previousEntry.replaceWith(renderEntry(editedEntry));
-        // $previousEntry.replaceWith(editedEntry);
       }
     }
   } else {
@@ -67,6 +64,7 @@ $entryForm.addEventListener('submit', function (event) {
     data.entries.unshift(inputVals);
     inputVals.entryId = data.nextEntryId;
     data.nextEntryId++;
+    $li.prepend(renderEntry(data.entries[0]));
   }
   $form.reset();
 });
