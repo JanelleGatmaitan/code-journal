@@ -35,17 +35,22 @@ $imageURL.addEventListener('input', function (event) {
 });
 
 $entryForm.addEventListener('submit', function (event) {
+  $entriesDisplay.className = 'entries-list-container';
+  $entryForm.className = 'hidden';
+  data.view = 'hidden';
   var inputVals = {};
   inputVals.imageURL = $imageURL.value;
   inputVals.title = $title.value;
   inputVals.textarea = $textArea.value;
   inputVals.entryId = data.nextEntryId;
-  data.nextEntryId++;
   data.entries.unshift(inputVals);
-  renderEntry(data.entries[0]);
-  $entriesDisplay.className = 'entries-list-container';
-  $entryForm.className = 'hidden';
-  data.view = 'hidden';
+  data.nextEntryId++;
+  if (data.editing !== data.entries[0]) {
+    console.log('replace node');
+  } else {
+    // $li.prepend(renderEntry(data.entries[0]));
+    console.log('make new entry');
+  }
   $form.reset();
 });
 
@@ -90,35 +95,16 @@ window.addEventListener('DOMContentLoaded', function (event) {
       $entryForm.className = 'entry-form';
       data.view = 'entry-form';
       var index = event.target.getAttribute('data-entry-id');
-      for (j = 0; j < data.entries.length; j++) {
+      for (var j = 0; j < data.entries.length; j++) {
         if (data.entries[j].entryId == index) {
-          data.editing = data.entries[j];
           $imageURL.value = data.entries[j].imageURL;
           $img.setAttribute('src', $imageURL.value);
           $title.value = data.entries[j].title;
           $textArea.value = data.entries[j].textarea;
-          console.log('yeet');
+          data.editing = data.entries[j];
+          console.log('data.editing', data.editing);
         }
       }
-
-      // console.log('typeof index: ', typeof index);
-      // console.log('parseFloat index: ', parseFloat(index));
-      // data.editing = data.entries[index];
-      // console.log('index: ', index);
-      // console.log('data.editing: ', data.editing);
-      // console.log('data.entries[index - 1]', data.entries[index - 1]);
     }
   });
-
-  //   function listRenderedEntries() {
-  //     // for (var x = 0; x < data.entries.length; x++) {
-  //     var $renderedEntries = document.querySelectorAll('i[data-entry-id]');
-  //     console.log('$renderedEntries', $renderedEntries);
-  //     console.log('$entry[0]: ', $renderedEntries[0]);
-  //     console.log('$entry[0].getAttribute("data-entry-id"): ', $renderedEntries[0].getAttribute('data-entry-id'));
-  //     // }
-  //   }
-
-  //   listRenderedEntries();
-
 });
